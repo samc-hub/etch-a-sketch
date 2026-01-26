@@ -2,12 +2,15 @@
     background-color: pink;
    display: flex;
    flex-wrap: wrap;
-   width: 1000px;
+   width: 980px;
+   height: 980px;
 }
 
 .sketchBox {
-    width: 250px;
-    border: 2px solid black;
+    position: relative;
+    width: calc((100% / var(--columns)) - 2px);
+    aspect-ratio: 1;
+    border: 1px solid black;
     background-color: white; 
 }
 
