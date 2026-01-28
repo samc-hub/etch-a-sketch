@@ -23,8 +23,6 @@ const randomColor = (() => {
     };
 })();
 
-
-
 function createGrid (rows, columns) {
     container.innerHTML = '';
     container.style.setProperty('--columns', columns);
@@ -42,5 +40,4 @@ function createGrid (rows, columns) {
         });
         container.appendChild(sketchBox);
     };
-    console.log('boxes:' , container.children.length);
 };

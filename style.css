@@ -11,13 +11,14 @@
     aspect-ratio: 1;
     border: 1px solid black;
     background-color: white; 
+    opacity: 0;
 }
 .sketchBox:after { 
     display: block;
     padding-bottom: 100%;
 }
 .draw {
-    background-color: pink;
+    background-color: var(--randomColor);
 }
 .clear {
     background-color: pink;
@@ -31,5 +32,17 @@
     display: flex;
     justify-content: center;
 }
+#newGrid {
+    margin-bottom: 10px; 
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.header {
+    display: flex; 
+    align-items: center;
+}
