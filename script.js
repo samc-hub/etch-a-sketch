@@ -10,22 +10,6 @@ const button = document.querySelector('#newGrid');
         }
 });
 
-function createGrid (rows, columns) {
-    container.innerHTML = '';
-    container.style.setProperty('--columns', columns);
-    const rowsColumns= (rows * columns);
-    for (let i = 0; i <= (rowsColumns) - 1 ; i ++) {
-        const sketchBox = document.createElement('div');
-        sketchBox.classList.add("sketchBox");
-        sketchBox.addEventListener('mouseenter', () => {
-            sketchBox.style.backgroundColor = randomColor();
-        });
-        container.appendChild(sketchBox);
-    };
-    console.log('boxes:' , container.children.length);
-};
-
-
 const randomColor = (() => {
     "use strict";
     const randomInt = (min, max) => {
@@ -39,3 +23,24 @@ const randomColor = (() => {
     };
 })();
 
+
+
+function createGrid (rows, columns) {
+    container.innerHTML = '';
+    container.style.setProperty('--columns', columns);
+    const rowsColumns= (rows * columns);
+    for (let i = 0; i <= (rowsColumns) - 1 ; i ++) {
+        const sketchBox = document.createElement('div');
+        sketchBox.classList.add("sketchBox");
+        sketchBox.addEventListener('mouseenter', () => {
+            sketchBox.style.backgroundColor = randomColor();
+            let currentOpacity = sketchBox.style.opacity || 0;
+            let newOpacity = Number(currentOpacity) + 0.1;
+            newOpacity = Math.min(newOpacity, 1);
+            sketchBox.style.opacity = newOpacity;
+
+        });
+        container.appendChild(sketchBox);
+    };
+    console.log('boxes:' , container.children.length);
+};
