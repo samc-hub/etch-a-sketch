@@ -1,4 +1,15 @@
 const container = document.querySelector('#container');
+const button = document.querySelector('#newGrid');
+button.addEventListener("click", () => {
+        let newRows = prompt("How Many Rows?");
+        let newColumns = prompt("How Many Columns");
+        let parsedRow = Number(newRows);
+        let parsedColumns = Number(newColumns);
+        if ((parsedRow < 100)&&(parsedColumns < 100)) {
+            createGrid(parsedRow, parsedColumns);
+        };
+});
+
 
 function createGrid (rows, columns) {
     const container = document.querySelector('#container');
@@ -14,4 +25,5 @@ function createGrid (rows, columns) {
         container.appendChild(sketchBox);
     }
 }
-createGrid(50,50);
+
+
