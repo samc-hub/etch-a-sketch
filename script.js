@@ -3,16 +3,14 @@ const button = document.querySelector('#newGrid');
     button.addEventListener("click", () => {
         let rowCol = prompt("How Many Squares Per Side?");
         let numbrRowCol = Number(rowCol);
-        if (rowCol< 100) {
+        if (numbrRowCol < 100) {
             createGrid(numbrRowCol, numbrRowCol);
-        };
+        } else {
+            alert('Exceeded Limit of 100');
+        }
 });
-function refreshPage () {
-    window.location.reload();
-}
 
 function createGrid (rows, columns) {
-    const container = document.querySelector('#container');
     container.innerHTML = '';
     container.style.setProperty('--columns', columns);
     const rowsColumns= (rows * columns);
@@ -20,12 +18,13 @@ function createGrid (rows, columns) {
         const sketchBox = document.createElement('div');
         sketchBox.classList.add("sketchBox");
         sketchBox.addEventListener('mouseenter', () => {
-            sketchBox.classList.add("draw");
-
+            sketchBox.style.backgroundColor = randomColor();
         });
         container.appendChild(sketchBox);
     };
+    console.log('boxes:' , container.children.length);
 };
+
 
 const randomColor = (() => {
     "use strict";
@@ -36,7 +35,7 @@ const randomColor = (() => {
         var h = randomInt(0, 360);
         var s = randomInt(42, 98); 
         var l = randomInt(40, 90);
-        return `hsl(${h},${s},${l}%)`;
+        return `hsl(${h},${s}%,${l}%)`;
     };
 })();
 
