@@ -3,7 +3,7 @@ const button = document.querySelector('#newGrid');
     button.addEventListener("click", () => {
         let rowCol = prompt("How Many Squares Per Side?");
         let numbrRowCol = Number(rowCol);
-        if (numbrRowCol < 100) {
+        if (numbrRowCol <= 100) {
             createGrid(numbrRowCol, numbrRowCol);
         } else {
             alert('Exceeded Limit of 100');
